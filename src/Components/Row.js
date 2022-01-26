@@ -6,6 +6,7 @@ function Row({ title, fetchUrl }) {
 
   useEffect(() => {
     async function fetchData(){
+      console.log(fetchUrl)
         const request = await axios.get(fetchUrl)
         console.log(request)
     }
