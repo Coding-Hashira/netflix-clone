@@ -3,12 +3,13 @@ import './App.css';
 import Row from './Components/Row';
 import {requests} from './requests';
 import Banner from './Components/Banner'
+import Navbar from './Components/Navbar';
 
 function App() {
 
   return (
     <div className="App">
-        {/* Nav */}
+        <Navbar/>
 
         <Banner/>
         <Row title="Trending Now" fetchUrl={requests.fetchTrending} isLarge={true}/>
