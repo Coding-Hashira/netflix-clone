@@ -26,9 +26,15 @@ function Row({ title, fetchUrl, isLarge=false}) {
         } else {
             movieTrailer(movie?.name || movie?.title || movie?.original_title || movie?.original_name)
             .then(url =>{
-                const urlParams = new URLSearchParams (new URL(url).search)
+                console.log(url);
                 
-                setTrailerUrl(urlParams.get('v'))
+                let slug = url?.lastIndexOf("=")
+
+                let result = url?.slice(slug+1)
+
+                console.log(result);
+                
+                setTrailerUrl(result)
             })
             .catch((err) => console.log(err))
         }
@@ -40,9 +46,9 @@ function Row({ title, fetchUrl, isLarge=false}) {
         playerVars: {
           // https://developers.google.com/youtube/player_parameters
           autoplay: 1,
+          origin: 'https://www.youtube.com/embed/',
         },
       };
-    console.log(movies);
 
 
     return <div className='row'>
